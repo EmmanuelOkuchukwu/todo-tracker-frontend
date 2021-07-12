@@ -1,0 +1,53 @@
+@import 'App';
+
+.todos-container {
+  margin: 0 auto;
+  max-width: 1100px;
+}
+
+.todos-title {
+  border-bottom: 1px solid $mainColor; 
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+  h2 {
+      color: $mainColor;
+  }
+}
+
+.fa-plus-square {
+  cursor: pointer;
+  color: $mainColor;
+}
+
+.todos-list {
+  border: 1px solid $mainColor;
+  padding: 10px;  
+}
+
+.flex-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;  
+}
+
+.card {
+  border: 1px solid $mainColor;
+  margin: 10px;
+  padding: 20px 10px;
+  border-radius: 4px;  
+}
+
+.card-header {
+  border-bottom: 1px solid $mainColor;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;  
+}
+
+.fa-trash {
+  cursor: pointer;
+  color: $mainColor; 
+  margin: 0 10px; 
+}

@@ -1,0 +1,64 @@
+@import 'App';
+
+.update-todo-container {
+  max-width: 1100px;
+  margin: 0 auto;  
+}
+
+.update-todos-title {
+  border-bottom: 1px solid $mainColor;  
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.fa-long-arrow-alt-left {
+  color: $mainColor;
+  cursor: pointer;
+}
+
+.main-background-form {
+  border: 1px solid $mainColor;
+  height: 100%;  
+  background-color: #fff;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.background {
+  height: 400px;
+  width: 350px;
+  border: 1px solid $mainColor;
+  border-radius: 4px;
+  background-color: #f1f1f1;   
+}
+
+.update-todo-form {
+  padding: 25px; 
+  h3 {
+    border-bottom: 1px solid #dddddd;  
+  }   
+}
+
+.text-input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #dbdbdb;
+  border-radius: 4px;    
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #dbdbdb;
+  border-radius: 4px;
+  cursor: pointer;
+  &:hover {
+    background-color: #dbdbdb;
+    transition: all 0.2s ease-in-out;  
+  }
+}
