@@ -58,11 +58,14 @@ const Todos = ({ history }) => {
                                 </div>
                             </div>
                         )): 
-                            <div className="card">
+                            <div className="card-error">
                                 <p>Nothing recorded</p>
                             </div>
                         }
-                    </div> : <div><h4>Data is Loading...</h4></div>   
+                    </div> : 
+                    <div>
+                        <h4>Data is Loading...</h4>
+                    </div>   
                 }
             </div>
         </div>

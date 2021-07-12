@@ -51,3 +51,16 @@
   color: $mainColor; 
   margin: 0 10px; 
 }
+
+.fa-edit {
+  cursor: pointer;
+  color: $mainColor; 
+}
+
+
+.card-error {
+  padding: 5px;
+  border: solid 1px $mainColor;
+  border-radius: 4px;
+  margin: 0 auto;
+}
