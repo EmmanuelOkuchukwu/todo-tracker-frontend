@@ -2,11 +2,10 @@
 
 .todos-container {
   margin: 0 auto;
-  max-width: 1100px;
+  max-width: 1000px;
 }
 
 .todos-title {
-  border-bottom: 1px solid $mainColor; 
   display: flex;
   align-items: center;
   justify-content: space-between; 
@@ -31,14 +30,16 @@
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;  
+  padding: 10px;
 }
 
 .card {
-  border: 1px solid #dddddd;
+  border: 1px solid $secondaryColor;
   margin: 10px;
-  padding: 20px 10px;
+  padding: 10px;
   border-radius: 4px;
-  width: 45%;  
+  width: 100%;  
+  background-color: $secondaryColor;
 }
 
 .card-header {
@@ -65,4 +66,13 @@
   border: solid 1px $mainColor;
   border-radius: 4px;
   margin: 0 auto;
+}
+
+@media screen and (max-width: $breakpoint-sm) {
+  .flex-container {
+    padding: 1px;
+  }
+  .todos-container {
+    margin: 155px 0;
+  }
 }

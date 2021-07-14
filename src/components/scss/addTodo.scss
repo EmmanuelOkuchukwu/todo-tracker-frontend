@@ -13,14 +13,12 @@
 }
 
 .fa-long-arrow-alt-left {
-    color: $mainColor;
-    cursor: pointer;
+  color: $mainColor;
+  cursor: pointer;
 }
 
 .main-background-form {
-  // border: 1px solid $mainColor;
   height: 100%;  
-  // background-color: #fff;
   padding: 15px;
   display: flex;
   align-items: center;
@@ -30,7 +28,6 @@
 .background {
   height: 400px;
   width: 350px;
-  // border: 1px solid $mainColor;
   border-radius: 4px;
   background-color: #f1f1f1;  
 }
@@ -38,7 +35,7 @@
 .add-todo-form {
   padding: 25px; 
   h3 {
-    border-bottom: 1px solid #dddddd;  
+    border-bottom: 1px solid $secondaryColor;  
   } 
 }
 
@@ -46,7 +43,7 @@
   width: 100%;
   padding: 10px;
   margin: 10px 0;
-  border: 1px solid #dbdbdb;
+  border: 1px solid $secondaryColor;
   border-radius: 4px;
 }
 
@@ -54,11 +51,17 @@
   width: 100%;
   padding: 10px;
   margin: 10px 0;
-  border: 1px solid #dbdbdb;
+  border: 1px solid $secondaryColor;
   border-radius: 4px;
   cursor: pointer;
   &:hover {
-    background-color: #dbdbdb;
+    background-color: $secondaryColor;
     transition: all 0.2s ease-in-out;  
+  }
+}
+
+@media screen and (max-width: $breakpoint-sm) {
+  .add-todo-container {
+    margin: 155px 0;
   }
 }

@@ -5,11 +5,11 @@
   margin: 0 auto;  
 }
 
-.update-todos-title {
-  border-bottom: 1px solid $mainColor;  
+.update-todos-title { 
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border-bottom: 1px solid $mainColor; 
 }
 
 .fa-long-arrow-alt-left {
@@ -18,7 +18,6 @@
 }
 
 .main-background-form {
-  border: 1px solid $mainColor;
   height: 100%;  
   padding: 15px;
   display: flex;
@@ -37,7 +36,7 @@
 .update-todo-form {
   padding: 25px; 
   h3 {
-    border-bottom: 1px solid #dddddd;  
+    border-bottom: 1px solid $secondaryColor;  
   }   
 }
 
@@ -45,7 +44,7 @@
   width: 100%;
   padding: 10px;
   margin: 10px 0;
-  border: 1px solid #dbdbdb;
+  border: 1px solid $secondaryColor;
   border-radius: 4px;    
 }
 
@@ -53,11 +52,17 @@
   width: 100%;
   padding: 10px;
   margin: 10px 0;
-  border: 1px solid #dbdbdb;
+  border: 1px solid $secondaryColor;
   border-radius: 4px;
   cursor: pointer;
   &:hover {
-    background-color: #dbdbdb;
+    background-color: $secondaryColor;
     transition: all 0.2s ease-in-out;  
+  }
+}
+
+@media screen and (max-width: $breakpoint-sm) {
+  .update-todo-container {
+    margin: 155px 0;
   }
 }

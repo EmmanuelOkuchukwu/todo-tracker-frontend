@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { TodosService } from '../../service/todos.service';
 import '../scss/todo.scss';
 import moment from 'moment';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Todos = ({ history }) => {
     const [todos, setTodos] = useState([]);
@@ -24,9 +26,7 @@ const Todos = ({ history }) => {
         TodosService.onDeleteTodo(id)
         .then((results) => {
             console.log('Removed Todo!!', results);
-            const remove = todos?.todos?.filter(todo => {
-                return todo._id !== id
-            })
+            const remove = todos?.todos?.filter(todo => todo._id !== id)
             setTodos(remove);
         })
         .catch((err) => {
@@ -68,6 +68,17 @@ const Todos = ({ history }) => {
                     </div>   
                 }
             </div>
+            <ToastContainer
+                position="top-center"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+             />
         </div>
     )
 }

@@ -22,8 +22,8 @@ function getTodoId(id) {
     })
 }
 
-function onAddTodo(formData) {
-    return axios.post(`${API_URL}/createtodos`, formData, {
+function onAddTodo(todoData) {
+    return axios.post(`${API_URL}/createtodos`, todoData, {
         headers: { 
             'Content-Type': 'application/json'
         }

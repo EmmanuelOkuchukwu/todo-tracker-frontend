@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import '../scss/updateTodo.scss';
 import { useParams } from 'react-router-dom';
 import { TodosService } from '../../service/todos.service';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const UpdateTodo = ({ history }) => {
     let { id } = useParams();
@@ -11,37 +13,50 @@ const UpdateTodo = ({ history }) => {
     }
     const [todoData, setTodoData] = useState(initialValues);
     const [todo, setTodo] = useState({});
+    const [isLoading, setIsLoading] = useState(false);
 
     const handleChange = evt => {
         const { name, value } = evt.target;
         setTodoData({...todoData, [name]: value});
     }
 
-    const handleUpdateTodo = () => {
+    const handleUpdateTodo = (evt) => {
+        evt.preventDefault();
+        setIsLoading(true);
         const formData = {
-            title: todoData.title,
-            content: todoData.content
+            title: todo.title,
+            content: todo.content
         }
         TodosService.onUpdateTodo(id, formData)
         .then((results) => {
-            console.log(results)
-            setTodoData(results)
+            console.log(results);
+            setTodo(results);
+            setIsLoading(false);
+            toast.dark('Successfully updated Todo!');
+        })
+        .catch((err) => {
+            setIsLoading(false);
+            console.log(err);
+            toast.error('Error updating Todo!');
+        })
+    }
+
+    console.log('todo object: ', todo);
+
+    useEffect(() => {
+        return getTodo(id);
+    }, [id])
+
+    const getTodo = (id) => {
+        TodosService.getTodoId(id)
+        .then((results) => {
+            console.log(results);
+            setTodo(results);
         })
         .catch((err) => {
             console.log(err);
         })
     }
-
-    useEffect(() => {
-        TodosService.getTodoId(id)
-        .then((results) => {
-            console.log(results)
-            setTodo(results)
-        })
-        .catch((err) => {
-            console.log(err);
-        })
-    }, [])
 
     return (
         <div>
@@ -54,13 +69,24 @@ const UpdateTodo = ({ history }) => {
                     <div className="background">
                         <form className="update-todo-form" onSubmit={handleUpdateTodo}>
                             <h3>Update your Todos</h3>
-                            <input className="text-input" type="text" name="title" value={todoData.title} onChange={handleChange} placeholder="Write your Title here..." />
-                            <textarea className="text-input" name="content" value={todoData.content} onChange={handleChange} placeholder="Write your Content here..." rows="4" cols="50"></textarea>
-                            <input className="btn-submit" type="submit" value="Update Todo" />
+                            <input className="text-input" type="text" name="title" value={todo.title} onChange={handleChange} placeholder={todo?.todoId?.title} />
+                            <textarea className="text-input" name="content" value={todo.content} onChange={handleChange} placeholder={todo?.todoId?.content} rows="4" cols="50"></textarea>
+                            <button className="btn-submit" type="submit" disabled={isLoading}>{isLoading ? 'Updating...' : 'Update Todo'}</button>
                         </form>
                     </div>
                 </div>
             </div>
+            <ToastContainer
+                position="top-center"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+             />
         </div>
     )
 }
