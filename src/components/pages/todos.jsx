@@ -26,7 +26,7 @@ const Todos = ({ history }) => {
         TodosService.onDeleteTodo(id)
         .then((results) => {
             console.log('Removed Todo!!', results);
-            const remove = todos?.todos?.filter(todo => todo._id !== id)
+            const remove = todos?.todos?.filter(todo => todo._id !== results._id)
             setTodos(remove);
         })
         .catch((err) => {
@@ -41,9 +41,9 @@ const Todos = ({ history }) => {
                 <i className="fas fa-plus-square fa-3x" onClick={()=> history.push('addtodo')} />
             </div>
             <div className="todos-list">
-                {isLoading ? 
+                {isLoading ?
                     <div className="flex-container">
-                        {todos?.todos?.length > 0 ? todos?.todos.map(todo => (
+                        {todos?.doc?.length > 0 ? todos?.doc?.map(todo => (
                             <div className="card" key={todo._id}>
                                 <div className="card-header">
                                     {todo.title}
@@ -57,15 +57,15 @@ const Todos = ({ history }) => {
                                     Posted at {moment (todo.createdAt).format('MMMM Do YYYY')}
                                 </div>
                             </div>
-                        )): 
+                        )):
                             <div className="card-error">
                                 <p>Nothing recorded</p>
                             </div>
                         }
-                    </div> : 
+                    </div> :
                     <div>
-                        <h4>Data is Loading...</h4>
-                    </div>   
+                        <h4>Todos are currently loading...</h4>
+                    </div>
                 }
             </div>
             <ToastContainer

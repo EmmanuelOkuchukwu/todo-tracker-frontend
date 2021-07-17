@@ -1,0 +1,2 @@
+const FETCH_TODOS = 'FETCH_TODOS';
+const NEW_TODO = 'NEW_TODO';

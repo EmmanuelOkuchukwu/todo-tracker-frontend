@@ -37,7 +37,11 @@ function onAddTodo(todoData) {
 }
 
 function onDeleteTodo(id) {
-    return axios.delete(`${API_URL}/removetodo/${id}`)
+    return axios.delete(`${API_URL}/removetodo/${id}`, {
+        headers: {
+            'Accept': 'application/json'
+        }
+    })
     .then((response) => {
         return response.data
     })

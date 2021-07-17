@@ -49,7 +49,7 @@ const AddTodo = ({ history }) => {
                     <form className="add-todo-form" onSubmit={handleAddTodo}>
                         <h3>Create your Todos</h3>
                         <input className="text-input" type="text" name="title" value={todoData.title} onChange={handleChange} placeholder="Write your Title here..." />
-                        <textarea className="text-input" name="content" value={todoData.content} onChange={handleChange} placeholder="Write your Content here..." rows="4" cols="50"></textarea>
+                        <textarea className="text-input" name="content" value={todoData.content} onChange={handleChange} placeholder="Write your Content here..." rows="4" cols="50" />
                         <button className="btn-submit" type="submit" disabled={isLoading}>{!isLoading ? 'Add Todo' : 'Loading...'}</button>
                     </form>
                 </div>
